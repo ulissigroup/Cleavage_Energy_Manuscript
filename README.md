@@ -6,9 +6,8 @@ This repository contains various scripts/notebooks we used to create the results
 
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
-  - [Surface energy dataset](#surface-energy-dataset)
+  - [Cleavage energy dataset](#surface-energy-dataset)
   - [Train a CGCNN model](#train-a-cgcnn-model)
-  - [Analyze CGCNN results](#analyze-cgcnn-results)
 
 
 ## Prerequisites
@@ -18,21 +17,21 @@ This repository contains various scripts/notebooks we used to create the results
 - [PyTorch](http://pytorch.org)
 - [scikit-learn](http://scikit-learn.org/stable/)
 - [pymatgen](http://pymatgen.org)
-
+- AdamW
 
 ## Usage
 
-### Surface energy dataset
+### Cleavage energy dataset
 
-Located in the `surface_energy_dataset` folder. 
+Located in the `cleavage_energy_dataset` folder. 
 
-We have included a pickel file that contain our surface data, along with a Jupyter notebook (`read_data.ipynb`) that shows you how we turn the pickel items into `ase.Atoms` objects.
+We have included a pickel file that contain our cleavage energy data, along with a Jupyter notebook (`read_data.ipynb`).
 
 ### Train a CGCNN model
 
 Located in the `train_CGCNN_model` folder.
 
-We have included 2 different training methods. `random_split.ipynb` notebook splits the data randomly into 8:2 training: test set, and uses CGCNN to train a model. `leave_one_out.ipynb` uses a composition of interest as the test set, and the rest of the data as the training set to train a model. **You need to clone the CGCNN repository and install all the prerequisite packages in order to run these notebooks** 
+We have included the cgcnn we used, and `random_asgginment` method. `random_assignment.ipynb` notebook splits the data randomly into 8:2 training: test set, and uses CGCNN to train a model. **You need to clone the CGCNN repository and install all the prerequisite packages in order to run these notebooks** 
 
 We have included the optimized paramters we used for CGCNN: 
 "atom_fea_len": 43, <br/>
@@ -44,17 +43,5 @@ We have included the optimized paramters we used for CGCNN:
 "n_conv": 8, <br/>
 "n_h": 3, <br/>
 "max_num_nbr": 12, <br/>
-"optimizer": "Adam"
-
-### Analyze CGCNN results
-
-Located in the `analyze_prediction_results` folder.
-
-The results from CGCNN predictions are stored in the `CGCNN_prediction_results` folder. You can use `generate_parity_plots.ipynb` to visualize the prediction accuracy for each training method. 
-
-
-
-
-
-
+"optimizer": "AdamW"
 
