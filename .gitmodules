@@ -1,0 +1,4 @@
+[submodule "cgcnn_visualize"]
+	path = train_CGCNN_model/cgcnn
+	url = https://github.com/apalizha/cgcnn.git
+	branch = visualization
